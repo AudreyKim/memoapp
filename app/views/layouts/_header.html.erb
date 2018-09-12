@@ -1,0 +1,19 @@
+ <header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <!-- 메모 앱을 누르면 홈으로 가게 만듦-->
+    <%=link_to 'Memo App', root_path, id: 'logo'%>
+    <nav>
+      <!-- 아래는 상단바 메뉴-->
+      <ul class="nav navbar-nav navbar-right">
+        <li><%=link_to 'Home', root_path %></li>
+        <li><%=link_to 'New Memo', memos_new_path %></li>
+        <%if user_signed_in?%>
+          <li><%=link_to 'Logout', destroy_user_session_path, method: 'delete'%></li>
+        <%else%>
+          <li><%=link_to 'Sign in', new_user_session_path%></li>
+          <li><%=link_to 'Sign up', new_user_registration_path%></li>
+        <%end%>
+      </ul>
+    </nav>
+  </div>
+ </header>
